@@ -140,7 +140,7 @@ epochs = 200
 autoencoder.compile(loss='mean_squared_error', optimizer = RMSprop())
 # autoencoder.summary()
 # autoencoder.compile(optimizer='adam', loss='categorical_crossentropy')
-autoencoder.load('autoencoder_galaxy_images2.h5')
+# autoencoder.load('autoencoder_galaxy_images2.h5')
 
 autoencoder.fit_generator(  train_generator, epochs=epochs, steps_per_epoch = 30,
                             validation_data = (test_generator),
@@ -178,7 +178,7 @@ for i in range(0, num_images):
     ax.get_xaxis().set_visible(False)
     ax.get_yaxis().set_visible(False)
 plt.tight_layout()
-plt.show()
+plt.savefig('autoencoder_' + string(epochs) + '_epochs.pdf')
 
 
 
